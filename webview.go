@@ -410,6 +410,15 @@ if (typeof {{.Name}} === 'undefined') {
 	window.external.invoke(JSON.stringify({scope: "{{$.Name}}", method: "{{.Name}}", params: [{{.JSArgs}}]}));
 };
 {{ end }}
+
+document.addEventListener('click', function (e) {
+  if (e.target.tagName.toLowerCase() === 'a') {
+    if (e.target.getAttribute('target') === '_blank') {
+      console.log('should open in a new tabbb')
+    }
+  }
+})
+
 `))
 
 type binding struct {
